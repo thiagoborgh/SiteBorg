@@ -36,7 +36,7 @@ form.addEventListener('submit', (event) => {
 
   const formData = new FormData(form);
 
-  fetch('/salvar_lead.php', { // Novo endpoint
+  fetch('/api/salvar_lead.php', { // Mudar para a pasta api
     method: 'POST',
     body: formData
   })

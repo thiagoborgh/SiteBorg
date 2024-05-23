@@ -1,4 +1,8 @@
 <?php
+// api/salvar_lead.php
+header('Access-Control-Allow-Origin: *'); // Permitir acesso de qualquer origem
+header('Content-Type: application/json');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Obter dados do formulário
@@ -14,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Abrir arquivo CSV (ou criar se não existir)
-    $arquivo = fopen("leads.csv", "a");
+    $arquivo = fopen("leads.csv", "a"); // Salvar na mesma pasta da function
 
     // Escrever dados no CSV
     fputcsv($arquivo, array($nome, $email, $telefone, $mensagem));
@@ -26,14 +30,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(array("success" => false, "message" => "Método de requisição inválido."));
 }
-// api/salvar_lead.php
-
-// Obter dados do formulário
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-// ... (processar os dados, salvar em arquivo ou banco de dados)
-
-// Retornar resposta JSON
-echo json_encode(array("success" => true, "message" => "Lead salvo com sucesso!"));
-?>
-
