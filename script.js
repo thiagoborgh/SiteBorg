@@ -36,7 +36,7 @@ form.addEventListener('submit', (event) => {
 
   const formData = new FormData(form);
 
-  fetch('/enviar_mensagem', { // Substitua '/enviar_mensagem' pelo endpoint correto
+  fetch('/salvar_lead.php', { // Novo endpoint
     method: 'POST',
     body: formData
   })
